@@ -1,0 +1,70 @@
+<body>
+    <div class="container ">
+        <h1>
+            Covid - 19 Data tracker
+        </h1>
+
+        <h2 >
+            Data for {{name}}
+        </h2>
+        <div class="row my-5 py-5">
+            <div class="col col-sm-12 col-md-4 ">
+                <div class = "card bg-green" style="background-color: aquamarine;">
+                    <div class="card-title">
+                        <h3>Affected</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            The total Number of confirmed cases are {{confirmed}} .
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col col-sm-12 col-md-4">
+                <div class = "card bg-blue" style="background-color:chartreuse;">
+                    <div class="card-title">
+                        <h3>Recovered</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            The total Number of  people recovered are {{recovered}} .
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col col-sm-12 col-md-4">
+                <div class = "card bg-red" style="background-color: red;">
+                    <div class="card-title">
+                        <h3>Deaths</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            The total Number of people died are {{deaths}} .
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <p>
+            Last updated : {{lastUpdate}}
+        </p>
+    </div>  
+    <div class="container">
+        <h2>
+            Choose Country
+        </h2>
+        <form method="post" action="/country">
+            <select class="browser-default custom-select" name="country">
+                <option class = "form-control"value="global" >Global</option>
+                
+                {{#each countries}}
+                    <option class = "form-control"value="{{name}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
