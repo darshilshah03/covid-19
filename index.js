@@ -68,5 +68,6 @@ app.post('/country',async (req,res) => {
 var port = process.env.PORT || 3000;
 
 app.listen(port,() => {
+    console.log(port);
     console.log('Server started');
 });
