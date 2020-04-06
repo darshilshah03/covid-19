@@ -1,5 +1,5 @@
 <body>
-    <div class="container ">
+    <div class="container my-5">
         <h1>
             Covid - 19 Data tracker
         </h1>
@@ -58,13 +58,13 @@
         </h2>
         <form method="post" action="/country">
             <select class="browser-default custom-select" name="country">
-                <option class = "form-control"value="global" >Global</option>
+                <option class = "form-control"value="Global" >Global</option>
                 
                 {{#each countries}}
                     <option class = "form-control"value="{{name}}">{{name}}</option>
                 {{/each}}
             </select>
-            <button type="submit">Submit</button>
+            <button class="btn btn-dark text-white my-3"type="submit">Submit</button>
         </form>
     </div>
 </body>
