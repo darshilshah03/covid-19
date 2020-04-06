@@ -65,6 +65,8 @@ app.post('/country',async (req,res) => {
     res.render('index',obj);
 })
 
-app.listen(3000,() => {
+var port = process.env.PORT || 3000;
+
+app.listen(port,() => {
     console.log('Server started');
-})
+});
