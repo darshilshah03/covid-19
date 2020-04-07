@@ -21,7 +21,7 @@ app.get('/', async (req,res) =>  {
     var countries = await axios.get(`${url}/countries`);
 
     //console.log(countries);
-    var date2 = new Date( renderedData.data.lastUpdate + 'UTC');
+    var date2 = new Date( renderedData.data.lastUpdate);
     date = date2.toString();
     console.log(date);
     res.render('index',{
