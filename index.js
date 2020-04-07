@@ -21,7 +21,8 @@ app.get('/', async (req,res) =>  {
     var countries = await axios.get(`${url}/countries`);
 
     //console.log(countries);
-    date = new Date( renderedData.data.lastUpdate);
+    var date2 = new Date( renderedData.data.lastUpdate);
+    date = date2.toString();
     console.log(date);
     res.render('index',{
         'confirmed' : renderedData.data.confirmed.value,
