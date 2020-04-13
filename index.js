@@ -21,7 +21,8 @@ app.get('/', async (req,res) =>  {
     var countries = await axios.get(`${url}/countries`);
 
     //console.log(countries);
-    date = new Date( renderedData.data.lastUpdate);
+    var date2 = new Date( renderedData.data.lastUpdate);
+    date = date2.toString();
     console.log(date);
     // var dailyData = await axios.get("https://pomber.github.io/covid19/timeseries.json");
     // console.log(dailyData.data.India.slice(Math.max(dailyData.data.India.length - 5, 0)));
