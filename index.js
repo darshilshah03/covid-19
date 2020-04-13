@@ -55,7 +55,7 @@ app.post('/country',async (req,res) => {
             'name' : 'Global', 
             'countries' : countries.data.countries,
             'lastUpdate' : date,
-            'global' : true
+            'global' : false
         };
     }
     else{
@@ -63,7 +63,8 @@ app.post('/country',async (req,res) => {
         var renderedData = await axios.get(`${url}/countries/${country}`);
         var dailyData = await axios.get("https://pomber.github.io/covid19/timeseries.json");
   //  console.log(dailyData.data.India.slice(Math.max(dailyData.data.India.length - 5, 0)));
-        var finalArray = dailyData.data.India.slice(Math.max(dailyData.data.India.length - 5, 0));
+        
+        var finalArray = dailyData.data[`${country}`].slice(Math.max(dailyData.data[`${country}`].length - 5, 0));
         finalArray.reverse();
         console.log(finalArray);
         var obj = {
@@ -73,7 +74,8 @@ app.post('/country',async (req,res) => {
             'name' : country, 
             'countries' : countries.data.countries,
             'lastUpdate' : date,
-            'global' : false
+            'global' : true,
+            'dailyData' : finalArray
         };
     }
 

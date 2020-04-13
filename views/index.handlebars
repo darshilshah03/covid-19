@@ -39,7 +39,7 @@
             </div>
             <div class="col col-12 my-2 col-md-4">
                 <div class = "card bg-red" style="background-color: red;">
-                    <div class="card-title">
+                    <div class="card-title ">
                         <h3>Deaths</h3>
                     </div>
                     <div class="card-body">
@@ -53,7 +53,25 @@
         </div>
         
     </div>  
-    <div class="container">
+    {{#if global}}
+        {{#each dailyData}}
+            <div class="container my-3">
+                <div class="card">
+                    <div class="card-title bg-dark text-white">
+                        <h3 class="text-center">{{date}}</h3>
+                    </div>
+                    <div class="card-body text-center">
+                        <p>
+                            <h5>Confirmed - {{confirmed}}</h5>
+                            <h5>Recovered - {{recovered}}</h5>
+                            <h5>Deaths - {{deaths}}</h5>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    {{/if}}
+    <div class="container my-5">
         <h2>
             Choose Country
         </h2>
