@@ -71,7 +71,7 @@
             </div>
         {{/each}}
     {{/if}}
-    <br><br><br><br>
+    <br><br><br>
     <div class="container">
         
         <canvas id="myChart"></canvas>
@@ -106,10 +106,11 @@
    
 
     
-    let ch = document.getElementById("myChart").getContext("2d");
-
+    let cha = document.getElementById("myChart");
+    cha.height = 300;
+    let ch = cha.getContext("2d");
     Chart.defaults.global.defaultFontFamily = 'Lato';
-    Chart.defaults.global.defaultFontSize = 20;
+    Chart.defaults.global.defaultFontSize = 12;
     Chart.defaults.global.defaultFontColor = 'blue';
 
     let chart = new Chart(ch,{
@@ -130,11 +131,15 @@
         options : {
             title : {
                 display : true,
-                text : 'Tolal Cases',
+                text : 'Total Cases',
                 fontSize : 25
             },
             legend : {
                 display:false
+            },
+            layout : {
+                
+                
             }
         }
     });
