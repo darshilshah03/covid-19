@@ -2,8 +2,8 @@ const express = require('express');
 const axios  = require('axios');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-
 const app = express();
+const Chart = require('chart.js');
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -66,7 +66,7 @@ app.post('/country',async (req,res) => {
         
         var finalArray = dailyData.data[`${country}`].slice(Math.max(dailyData.data[`${country}`].length - 5, 0));
         finalArray.reverse();
-        console.log(finalArray);
+        
         var obj = {
             'confirmed' : renderedData.data.confirmed.value,
             'recovered' : renderedData.data.recovered.value,

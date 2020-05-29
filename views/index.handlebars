@@ -71,6 +71,12 @@
             </div>
         {{/each}}
     {{/if}}
+    <br><br><br><br>
+    <div class="container">
+        
+        <canvas id="myChart"></canvas>
+    </div>
+
     <div class="container my-5">
         <h2>
             Choose Country
@@ -86,6 +92,8 @@
             <button class="btn btn-dark text-white my-3"type="submit">Submit</button>
         </form>
     </div>
+
+    
     <div class="container">
         <p>
             Last updated : {{lastUpdate}}
@@ -93,3 +101,42 @@
     </div>
 
 </body>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<script>
+   
+
+    
+    let ch = document.getElementById("myChart").getContext("2d");
+
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 20;
+    Chart.defaults.global.defaultFontColor = 'blue';
+
+    let chart = new Chart(ch,{
+        type : 'bar',
+        data : {
+            labels : ['Confirmed','Recovered','Deaths'],
+            datasets : [
+                {
+                    label : ['Total Cases'],
+                    data : [{{confirmed}},{{recovered}},{{deaths}}],
+                    backgroundColor : ['skyblue','green','red'],
+                    hoverBorderWidth : 3,
+                    hoverBorderColor : 'black'
+                }
+            ],
+            
+        },
+        options : {
+            title : {
+                display : true,
+                text : 'Tolal Cases',
+                fontSize : 25
+            },
+            legend : {
+                display:false
+            }
+        }
+    });
+
+</script>
